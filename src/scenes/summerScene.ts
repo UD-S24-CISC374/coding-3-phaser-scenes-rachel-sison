@@ -9,7 +9,7 @@ export default class summerScene extends Phaser.Scene {
         const { width, height } = this.sys.game.config;
         const screenWidth: number = Number(width);
         const screenHeight: number = Number(height);
-        const bg = this.add
+        this.add
             .image(screenWidth / 2, screenHeight / 2, "summer")
             .setDisplaySize(screenWidth, screenHeight)
             .setInteractive()
