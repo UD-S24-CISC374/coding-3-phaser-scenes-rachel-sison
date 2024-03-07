@@ -1,10 +1,8 @@
-import Phaser from "phaser";
-
-export default class MainScene extends Phaser.Scene {
+import Phaer from "phaser";
+export default class springScene extends Phaser.Scene {
     constructor() {
-        super({ key: "MainScene" });
+        super({ key: "springScene" });
     }
-
     create() {
         const score = this.registry.get("score");
         const { width, height } = this.sys.game.config;
@@ -12,20 +10,17 @@ export default class MainScene extends Phaser.Scene {
         const screenHeight: number = Number(height);
 
         this.add
-            .image(screenWidth / 2, screenHeight / 2, "fall")
+            .image(screenWidth / 2, screenHeight / 2, "spring")
             .setDisplaySize(screenWidth, screenHeight)
             .setInteractive()
             .on("pointerdown", () => {
-                this.scene.start("winterScene");
+                this.scene.start("summerScene");
                 this.registry.set("score", score + 10);
             });
-
-        this.add.text(350, 150, "Fall Scene");
+        this.add.text(350, 150, "Spring Scene");
         this.add.text(50, 50, "Score: " + score, {
             fontSize: "24px",
             color: "#000000",
         });
     }
-
-    update() {}
 }
